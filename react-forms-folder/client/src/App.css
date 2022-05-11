@@ -1,0 +1,24 @@
+body {
+    background-color: bisque;
+}
+
+.formdata {
+    font-size: x-large;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="email"] {
+    width: 20%;
+    padding: 5px;
+    font-size: 20px;
+    border: 2px solid black;
+    height: 20px;
+}
+
+input[type="submit"]{
+    width : 200px;
+    padding: 12px;
+    font-size: 20px;
+    cursor: pointer;
+}

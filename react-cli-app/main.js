@@ -2,7 +2,6 @@ import readlineSync from 'readline-sync';
 import axios from 'axios';
 import loginnamesGithub from './loginnames.js';
 import followersGithub from './followers.js';
-import { setDefaultOptions } from 'readline-sync';
 
 
 async function main() {
@@ -16,7 +15,6 @@ async function main() {
     2 to Sort according to followers in descending order \n\n
     Enter your Option : `);
         switch (choose) {
-
             case 1:
                 await followersGithub();
                 break;
