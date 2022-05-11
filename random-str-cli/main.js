@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-
+import loginNameGitHub from './loginnames';
 
 function main() {
     console.clear();
