@@ -1,17 +1,22 @@
-function App(){
+function App() {
+  let randomArr = [];
+for(let k = 0; k < 100; k++){
+  randomArr[k] = k+1;
+}
+randomArr.sort((a,b) => 0.5 - Math.random());
 
-  let friends = ['Priyanka','Gaurav','Shamshad','Anjali','Vedanshu'];
+let arr = [];
+  for(let i = 0; i < 10; i++){
+    arr.push(randomArr.splice(0,10));
+  }
+
   return (
     <>
-    <h1> Hello Dosto {friends}</h1>
-    {
-      friends.map(dost => (
-        <>
-
-        <h2> Hello raj{dost === 'Gaurav' || dost === 'Shamshad' || dost === 'Vedanshu' ? 'kumar '+ dost : 'kumari ' + dost} </h2>
-        </>
-        ))
-    }
+      <table>
+        {
+          arr.map(rows => <tr> {rows.map(tdata => (<td>{tdata}</td>))}</tr>)
+        }
+      </table>
     </>
   )
 }
