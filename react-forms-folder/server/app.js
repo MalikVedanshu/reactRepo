@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-
+import './dbConnect.js';
 const port = 5000;
 
 app.get("/", (req, res) => {
