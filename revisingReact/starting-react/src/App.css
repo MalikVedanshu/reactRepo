@@ -1,0 +1,10 @@
+tr,td {
+    border: 2px solid black;
+    width: 120px;
+    height: 90px;
+    text-align: center;
+    font-size: xx-large;
+}
+thead{
+    font-weight: bolder;
+}
