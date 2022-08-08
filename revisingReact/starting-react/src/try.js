@@ -1,5 +1,5 @@
-import React from 'react';
-import style from './style.css'
+// import React from 'react';
+// import style from './App.css'
 
 let arryy = [
   {
@@ -257,8 +257,7 @@ function App() {
       if (key === 'address' || key === 'company') {
         vals[i].push([...Object.values(arryy[i][key])]);
         if (key === 'address') {
-          // let geoArr = [...Object.values(vals[i][4][4])];
-          let geoArr = [`lat : ${vals[i][4][4]['lat']} `, ` lng : ${vals[i][4][4]['lng']}`];
+          let geoArr = [...Object.values(vals[i][4][4])];
           vals[i][4].pop();
           vals[i].push(geoArr);
         }
@@ -267,43 +266,43 @@ function App() {
         vals[i].push(arryy[i][key]);
       }
     }
-    vals[i][4] = vals[i][4].join();
-    vals[i][8] = vals[i][8].join();
+    vals[i][4] =  vals[i][4].join()
+    vals[i][8] = vals[i][8].join()
   }
 
-
-  return (
-    <>
-    <center>
-      <table>
-        <thead>
-          <tr>
-            {
-              headers.map((ele,indx) => (
-                <td key={indx}>{ele}</td>
-              ))
-            }
-          </tr>
-        </thead>
-        <tbody>
-          {
-            vals.map((elem,idx) => (
-              <tr key={idx}>
-                {
-                  elem.map((elemen,ixx) => (
-                    <td key={ixx}>{elemen}</td>
-                  ))
-                }
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-      </center>
-    </>
+console.log(vals);
+  // return (
+  //   <>
+  //   <center>
+  //     <table>
+  //       <thead>
+  //         <tr>
+  //           {
+  //             headers.map((ele,indx) => (
+  //               <td key={indx}>{ele}</td>
+  //             ))
+  //           }
+  //         </tr>
+  //       </thead>
+  //       <tbody>
+  //         {
+  //           vals.map((elem,idx) => (
+  //             <tr key={idx}>
+  //               {
+  //                 elem.map((elemen,ixx) => (
+  //                   <td key={ixx}>{elemen}</td>
+  //                 ))
+  //               }
+  //             </tr>
+  //           ))
+  //         }
+  //       </tbody>
+  //     </table>
+  //     </center>
+  //   </>
     
 
-  )
+  // )
 }
 
-export default App;
+App();
