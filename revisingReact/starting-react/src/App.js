@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './style.css'
+import './style.css'
 
 let arryy = [
   {
@@ -260,7 +260,7 @@ function App() {
           // let geoArr = [...Object.values(vals[i][4][4])];
           let geoArr = [`lat : ${vals[i][4][4]['lat']} `, ` lng : ${vals[i][4][4]['lng']}`];
           vals[i][4].pop();
-          vals[i].push(geoArr);
+          vals[i].push(geoArr[0],geoArr[1]);
         }
       }
       else {
@@ -268,9 +268,8 @@ function App() {
       }
     }
     vals[i][4] = vals[i][4].join();
-    vals[i][8] = vals[i][8].join();
+    vals[i][9] = vals[i][9].join();
   }
-
 
   return (
     <>
@@ -279,9 +278,18 @@ function App() {
         <thead>
           <tr>
             {
-              headers.map((ele,indx) => (
-                <td key={indx}>{ele}</td>
-              ))
+              headers.map((ele,indx) => {
+                if(ele === 'geo') {
+                  return (
+                    (<td key={indx} colSpan = {2}>{ele}</td>)
+                  )
+                }
+                else {
+                  return (
+                    (<td key={indx}>{ele}</td>)
+                  )
+                }
+              })
             }
           </tr>
         </thead>
@@ -291,7 +299,7 @@ function App() {
               <tr key={idx}>
                 {
                   elem.map((elemen,ixx) => (
-                    <td key={ixx}>{elemen}</td>
+                    (<td key={ixx}>{elemen}</td>)
                   ))
                 }
               </tr>

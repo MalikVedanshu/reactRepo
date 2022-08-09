@@ -259,7 +259,7 @@ function App() {
         if (key === 'address') {
           let geoArr = [...Object.values(vals[i][4][4])];
           vals[i][4].pop();
-          vals[i].push(geoArr);
+          vals[i].push(geoArr[0],geoArr[1]);
         }
       }
       else {
@@ -267,7 +267,7 @@ function App() {
       }
     }
     vals[i][4] =  vals[i][4].join()
-    vals[i][8] = vals[i][8].join()
+    vals[i][9] = vals[i][9].join()
   }
 
 console.log(vals);
