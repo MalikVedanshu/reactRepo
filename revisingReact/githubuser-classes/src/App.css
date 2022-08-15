@@ -1,0 +1,23 @@
+img {
+  width: 240px;
+  height: auto;
+  border-radius: 4px;
+  /* margin-bottom: 5px; */
+}
+button {
+  border: 2px solid;
+  font: bolder;
+  font-size: x-large;
+  font-family: cursive;
+  color: white;
+  border-radius: 8px;
+  width: 80%;
+  background-color: rgb(67, 67, 138);
+  height: auto;
+}
+
+div {
+  /* margin: auto; */
+  float: left;
+  padding: 5px;
+}
