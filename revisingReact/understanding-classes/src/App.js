@@ -1,75 +1,68 @@
 import React from "react";
-import axios from "axios";
+import axios from 'axios'
 import './App.css';
+import Loading from './loading';
+
 class App extends React.Component {
     constructor() {
-        super();
+        super()
         this.state = {
-            data : []
+            headers: [],
+            dataa: [],
+            Loading : false
         }
-        
     }
-
-    async componentDidMount(){
-        const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+    async componentDidMount() {
         this.setState({
-            data : res.data
+            Loading : true
         });
-        // console.log(this.state.data,dataArr);
-    }
+        let todos = await axios.get('https://jsonplaceholder.typicode.com/todos');
+        let myData = todos.data.map(elemm => Object.values(elemm))
+        // console.log(myData);
 
-    render(){
-        return(
+        this.setState({
+            headers: Object.keys(todos.data[0]),
+            dataa: myData,
+            Loading : false
+        })
+    }
+    render() {
+        return (
             <>
             <center>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Geo</th>
-                            <th>Phone</th>
-                            <th>Website</th>
-                            <th>Company</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <button>Completed</button>
+            <table>
+                <thead>
+                    <tr>
                         {
-                            this.state.data.map((ele,keyele) => (
-                                <tr key={keyele}>
-                                    <td>{ele.id}</td>
-                                    <td>{ele.name}</td>
-                                    <td>{ele.username}</td>
-                                    <td>{ele.email}</td>
-                                    <td>
-                                        <address>
-                                            {Object.values(ele.address).map((el,idx) => {
-                                                if(idx < Object.values(ele.address).length - 1){
-                                                    return (<p>{el}</p>)
-                                                }
-                                            })}
-                                        </address>
-                                    </td>
-                                    <td><p>{Object.values(ele.address.geo.lat)}</p> <p>{Object.values(ele.address.geo.lng)}</p></td>
-                                    <td>{ele.phone}</td>
-                                    <td><a href={ele.website}>{ele.website} </a></td>
-                                    <td>
-                                        <address>{Object.values(ele.company).map((elemente) => (
-                                            <p>{elemente}</p>
-                                        ))}</address>
-                                    </td>
-                                </tr>
+                            this.state.headers.map((ele, i) => (
+                                <th key={i}>{ele}</th>
                             ))
                         }
-                    </tbody>
-                </table>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        this.state.dataa.map((elemen, j) => (
+                            <tr key={j}>
+                                {
+                                    elemen.map((element, k) => (
+                                        <td key={k}>{element.toString()}</td>
+                                    ))
+                                }
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+            {
+                this.state.Loading && (<Loading />)
+            }
+            
             </center>
             </>
         )
-
     }
 }
+
 export default App;

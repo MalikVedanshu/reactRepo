@@ -1,8 +1,30 @@
-tr,td,th {
+/* tr,td,th {
     border: 2px black solid;
     height: 50px;
     width: 160px;
     text-align: center;
     font-family: cursive;
     font-size: medium;
+} */
+tr,td,th,button {
+    border: 3px black solid;
+    height: 50px;
+    width: 220px;
+    text-align: center;
+    font-family: cursive;
+    font-size: large;
+}
+th{
+    background-color: black;
+    color: white;
+}
+td{
+    color: rgb(42, 39, 39);
+}
+button{
+    background-color: blue;
+    color: rgb(255, 255, 238);
+    border-radius: 9px;
+    cursor: pointer;
+    margin: 10px 15px;
 }
