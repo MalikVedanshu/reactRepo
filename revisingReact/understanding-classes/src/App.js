@@ -9,28 +9,35 @@ class App extends React.Component {
         this.state = {
             headers: [],
             dataa: [],
-            Loading : false
+            Loading : false,
+            button : true,
+            myData : []
         }
     }
     async componentDidMount() {
         this.setState({
             Loading : true
-        });
+        })
         let todos = await axios.get('https://jsonplaceholder.typicode.com/todos');
-        let myData = todos.data.map(elemm => Object.values(elemm))
-        // console.log(myData);
-
         this.setState({
+            myData : todos.data.map(elemm => Object.values(elemm)),
             headers: Object.keys(todos.data[0]),
-            dataa: myData,
-            Loading : false
+            Loading : false,
+            button : this.state.button,
+            dataa : this.state.myData
+        });
+    }
+    clickMethod = () => {
+        this.setState({
+            button : !this.state.button,
+            dataa : this.state.myData.filter(elem => this.state.button ? elem[3] : !elem[3])
         })
     }
     render() {
         return (
             <>
             <center>
-                <button>Completed</button>
+                <button onClick={this.clickMethod}>{this.state.button ? 'Completed' : 'Not-Completed'}</button>
             <table>
                 <thead>
                     <tr>
