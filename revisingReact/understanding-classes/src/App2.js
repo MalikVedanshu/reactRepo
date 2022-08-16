@@ -61,7 +61,7 @@ class App extends React.Component {
                                     </td>
                                     <td><p>{Object.values(ele.address.geo.lat)}</p> <p>{Object.values(ele.address.geo.lng)}</p></td>
                                     <td>{ele.phone}</td>
-                                    <td><a href={ele.website} target = '_blank' rel="noreferrer">{ele.website} </a></td>
+                                    <td><a href={ele.website}>{ele.website} </a></td>
                                     <td>
                                         <address>{Object.values(ele.company).map((elemente,eleKii) => (
                                             <p key={eleKii}>{elemente}</p>
